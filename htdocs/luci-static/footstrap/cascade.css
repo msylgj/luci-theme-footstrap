@@ -485,14 +485,15 @@ legend{font-size:var(--fs-type-lg);font-weight:var(--fs-weight-bold);color:var(-
 .table.fs-dt:not(.fs-stacked) .td{overflow-wrap:break-word}
 .table.fs-dt:not(.fs-stacked) .td.fs-td-break{overflow-wrap:anywhere}
 .table.fs-dt .td,.table.fs-dt .td :not(button):not(.btn):not(input):not(select):not(textarea){word-break:normal !important}
+:is(#view,#modal_overlay) .fs-dt .td{top:auto;bottom:auto}
 :where(:root[data-layout="sidebar"]:not([data-narrow]) #view,#modal_overlay) .table.fs-dt:not(.fs-stacked) .tr.table-titles .th{position:sticky;top:0;z-index:1;background:var(--fs-panel2)}
 :where(:root[data-layout="top"] #view,:root[data-narrow] #view) .table.fs-dt:not(.fs-stacked) .tr.table-titles .th{position:sticky;top:var(--fs-bar-live,var(--fs-bar-h));z-index:1;background:var(--fs-panel2)}
 .table.fs-dt{overflow-anchor:none}
 .cbi-section .table:is([id],.fs-dt) .tr:not(.table-titles):not(.placeholder):hover .td{background:var(--fs-panel2)}
 .cbi-section .table:is([id],.fs-dt) .tr.table-titles .th{border-bottom-color:var(--fs-border)}
 .cbi-section .table[id],#view .table[id],.cbi-section .table.fs-dt,.cbi-section table.fs-dt,table.fs-dt{border-collapse:separate;border-spacing:0;border:var(--fs-hairline);border-radius:var(--fs-radius-lg);overflow:visible}
-.cbi-section .table[id] .tr.table-titles .th:first-child,#view .table[id] .tr.table-titles .th:first-child,table.fs-dt .tr.table-titles .th:first-child{border-top-left-radius:var(--fs-radius-lg)}
-.cbi-section .table[id] .tr.table-titles .th:last-child,#view .table[id] .tr.table-titles .th:last-child,table.fs-dt .tr.table-titles .th:last-child{border-top-right-radius:var(--fs-radius-lg)}
+.cbi-section .table[id] :is(.tr.table-titles,.thead) .th:first-child,#view .table[id] :is(.tr.table-titles,.thead) .th:first-child,table.fs-dt :is(.tr.table-titles,.thead) .th:first-child{border-top-left-radius:var(--fs-radius-lg)}
+.cbi-section .table[id] :is(.tr.table-titles,.thead) .th:last-child,#view .table[id] :is(.tr.table-titles,.thead) .th:last-child,table.fs-dt :is(.tr.table-titles,.thead) .th:last-child{border-top-right-radius:var(--fs-radius-lg)}
 .cbi-section .table[id] .tr:last-child .td:first-child,#view .table[id] .tr:last-child .td:first-child,table.fs-dt .tr:last-child .td:first-child{border-bottom-left-radius:var(--fs-radius-lg)}
 .cbi-section .table[id] .tr:last-child .td:last-child,#view .table[id] .tr:last-child .td:last-child,table.fs-dt .tr:last-child .td:last-child{border-bottom-right-radius:var(--fs-radius-lg)}
 .cbi-section .table[id] .tr.placeholder .td,#view .table[id] .tr.placeholder .td,table.fs-dt .tr.placeholder .td{padding-block:var(--fs-space-2);text-align:start;color:var(--fs-dim);font-family:var(--fs-font-sans);border-radius:0 0 var(--fs-radius-lg) var(--fs-radius-lg)}
@@ -721,21 +722,21 @@ div.cbi-value var,.td.cbi-value-field var{color:var(--fs-accent)}
 .cbi-filebrowser .upload>div>input{width:100%}
 .btn>input[type="checkbox"],.btn>input[type="radio"]{margin-inline-end:.5em}
 .cbi-checkbox{display:inline-flex;align-items:center;gap:var(--fs-space-2);overflow-wrap:anywhere}
-.cbi-checkbox>input[type="checkbox"]{position:absolute;opacity:0;width:0;height:0;margin:0}
-.cbi-checkbox>label[for]{--sw-w:calc(40px * var(--fs-density-box));--sw-h:calc(22px * var(--fs-density-box));--sw-knob:calc(16px * var(--fs-density-box));--sw-pad:calc(2px * var(--fs-density-box));display:inline-block;position:relative;margin:0;flex-shrink:0;width:var(--sw-w);height:var(--sw-h);border-radius:var(--fs-radius-pill);background:var(--fs-track);border:var(--fs-hairline);cursor:pointer;transition:background var(--fs-dur),border-color var(--fs-dur);vertical-align:middle}
-.cbi-checkbox>label[for]::before{content:"";position:absolute;inset:-4px -2px}
-.cbi-checkbox>label[for]::after{content:"";position:absolute;top:var(--sw-pad);inset-inline-start:var(--sw-pad);width:var(--sw-knob);height:var(--sw-knob);border-radius:50%;background:var(--fs-dim);transform:translateX(0);transition:transform var(--fs-dur-move),background var(--fs-dur)}
-.cbi-checkbox>input[type="checkbox"]:checked + label{background:var(--fs-accent);border-color:transparent}
-.cbi-checkbox>input[type="checkbox"]:checked + label::after{transform:translateX(calc(var(--sw-w) - var(--sw-knob) - var(--sw-pad) * 2 - 2px));background:var(--fs-on-accent)}
-.cbi-checkbox>input[type="checkbox"]:focus-visible + label{border-color:var(--fs-accent);box-shadow:var(--fs-focus-ring-solo)}
-.cbi-checkbox>input[type="checkbox"]:disabled + label{opacity:var(--fs-disabled-opacity);cursor:not-allowed}
+.cbi-checkbox>label[for]{position:absolute;opacity:0;width:0;height:0;margin:0}
+.cbi-checkbox>input[type="checkbox"]{--sw-w:calc(40px * var(--fs-density-box));--sw-h:calc(22px * var(--fs-density-box));--sw-knob:calc(16px * var(--fs-density-box));--sw-pad:calc(2px * var(--fs-density-box));display:inline-block;position:relative;margin:0;flex-shrink:0;width:var(--sw-w);height:var(--sw-h);border-radius:var(--fs-radius-pill);background:var(--fs-track);border:var(--fs-hairline);cursor:pointer;transition:background var(--fs-dur),border-color var(--fs-dur);vertical-align:middle}
+.cbi-checkbox>input[type="checkbox"]::before{inset:-4px -2px}
+.cbi-checkbox>input[type="checkbox"]::after{top:var(--sw-pad);inset-inline-start:var(--sw-pad);width:var(--sw-knob);height:var(--sw-knob);border-radius:50%;background:var(--fs-dim);transform:translateX(0);transition:transform var(--fs-dur-move),background var(--fs-dur)}
+.cbi-checkbox>input[type="checkbox"]:checked{background:var(--fs-accent);border-color:transparent}
+.cbi-checkbox>input[type="checkbox"]:checked::after{transform:translateX(calc(var(--sw-w) - var(--sw-knob) - var(--sw-pad) * 2 - 2px));background:var(--fs-on-accent)}
+.cbi-checkbox>input[type="checkbox"]:focus-visible{border-color:var(--fs-accent);box-shadow:var(--fs-focus-ring-solo)}
+.cbi-checkbox>input[type="checkbox"]:disabled{opacity:var(--fs-disabled-opacity);cursor:not-allowed}
 input[type="checkbox"],input[type="radio"]{--bd-color:var(--fs-border);--fg-color:var(--fs-text);--box:calc(16px * var(--fs-density-box));--mark-inset:3px;--hit:max(24px,var(--box));appearance:none;width:var(--hit);height:var(--hit);margin:calc((var(--box) - var(--hit)) / 2);color:var(--fg-color);position:relative;display:inline-block;cursor:pointer;background:none;border:none}
 input[type="checkbox"]::before,input[type="checkbox"]::after,input[type="radio"]::before,input[type="radio"]::after{position:absolute;content:""}
-input[type="checkbox"]::before,input[type="radio"]::before{inset:0;margin:auto;width:var(--box);height:var(--box);background:linear-gradient(var(--fs-panel),var(--fs-panel2));border:1px solid var(--bd-color);transition:var(--fs-field-transition)}
+input[type="checkbox"]:not(:where(.cbi-checkbox>input))::before,input[type="radio"]::before{inset:0;margin:auto;width:var(--box);height:var(--box);background:linear-gradient(var(--fs-panel),var(--fs-panel2));border:1px solid var(--bd-color);transition:var(--fs-field-transition)}
 input[type="checkbox"]::before{border-radius:2px}
 input[type="radio"],input[type="radio"]::before{border-radius:50%}
-input[type="checkbox"]::after,input[type="radio"]::after{inset:0;margin:auto;width:calc(var(--box) - var(--mark-inset) * 2);height:calc(var(--box) - var(--mark-inset) * 2)}
-input[type="checkbox"]:checked::after,input[type="radio"]:checked::after{--checkmark-icon:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'><path d='M4.5 12.5 9.5 17.5 19.5 6.5'/></svg>");-webkit-mask:var(--checkmark-icon) center/cover no-repeat;mask:var(--checkmark-icon) center/cover no-repeat;background:var(--fg-color)}
+input[type="checkbox"]:not(:where(.cbi-checkbox>input))::after,input[type="radio"]::after{inset:0;margin:auto;width:calc(var(--box) - var(--mark-inset) * 2);height:calc(var(--box) - var(--mark-inset) * 2)}
+input[type="checkbox"]:not(:where(.cbi-checkbox>input)):checked::after,input[type="radio"]:checked::after{--checkmark-icon:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'><path d='M4.5 12.5 9.5 17.5 19.5 6.5'/></svg>");-webkit-mask:var(--checkmark-icon) center/cover no-repeat;mask:var(--checkmark-icon) center/cover no-repeat;background:var(--fg-color)}
 input[type="radio"]:checked:after{--checkmark-icon:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='6.5' fill='%23000'/></svg>")}
 input[type="checkbox"].cbi-input-invalid,input[type="radio"].cbi-input-invalid{--bd-color:var(--fs-danger);--fg-color:var(--fs-danger)}
 input{display:inline-block;width:210px;height:var(--fs-control-h);padding:var(--fs-space-1) var(--fs-space-2);background:var(--fs-panel);color:var(--fs-text);border:var(--fs-hairline);border-radius:var(--fs-radius)}
@@ -766,8 +767,8 @@ textarea::-webkit-scrollbar-corner{background:transparent}
 textarea::-webkit-resizer{background:transparent;border-right:2px solid var(--fs-accent);border-bottom:2px solid var(--fs-accent);border-bottom-right-radius:var(--fs-radius);margin:calc(16px - var(--fs-radius)) 0 0 calc(16px - var(--fs-radius))}
 :root[dir="rtl"] textarea::-webkit-resizer{border-right:0;border-left:2px solid var(--fs-accent);border-bottom-right-radius:0;border-bottom-left-radius:var(--fs-radius);margin:calc(16px - var(--fs-radius)) calc(16px - var(--fs-radius)) 0 0}
 .cbi-input-text:hover,.cbi-input-password:hover,.cbi-input-textarea:hover,input[type="text"]:hover,input[type="password"]:hover,input[type="number"]:hover,input[type="email"]:hover,input[type="url"]:hover,input[type="search"]:hover,textarea:hover{border-color:var(--fs-dim)}
-.cbi-input-text:focus,.cbi-input-password:focus,.cbi-input-textarea:focus,.cbi-section-create-name:focus,input:focus,input[type="text"]:focus,input[type="password"]:focus,input[type="number"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="date"]:focus,input[type="time"]:focus,textarea:focus,select:focus,.cbi-dynlist>.item:focus{border-color:var(--fs-accent);box-shadow:var(--fs-focus-ring);outline:none}
-input[type="checkbox"]:focus::before,input[type="radio"]:focus::before,.cbi-select.focus,.cbi-dynlist>.add-item:focus-within,.control-group:is(:has(>.cbi-input-password)):focus-within{border-color:var(--fs-accent);box-shadow:var(--fs-focus-ring)}
+.cbi-input-text:focus,.cbi-input-password:focus,.cbi-input-textarea:focus,.cbi-section-create-name:focus,input:focus:not(:where(.cbi-checkbox>input)),input[type="text"]:focus,input[type="password"]:focus,input[type="number"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="date"]:focus,input[type="time"]:focus,textarea:focus,select:focus,.cbi-dynlist>.item:focus{border-color:var(--fs-accent);box-shadow:var(--fs-focus-ring);outline:none}
+input[type="checkbox"]:not(:where(.cbi-checkbox>input)):focus::before,input[type="radio"]:focus::before,.cbi-select.focus,.cbi-dynlist>.add-item:focus-within,.control-group:is(:has(>.cbi-input-password)):focus-within{border-color:var(--fs-accent);box-shadow:var(--fs-focus-ring)}
 input[type="checkbox"].cbi-input-invalid:focus::before,input[type="radio"].cbi-input-invalid:focus::before,.cbi-select.cbi-input-invalid.focus,.cbi-input-invalid,input.cbi-input-invalid,textarea.cbi-input-invalid,.cbi-value-error input,.cbi-value-error textarea,.cbi-input-invalid:focus{border-color:var(--fs-danger);box-shadow:var(--fs-focus-ring-invalid)}
 .cbi-input-invalid.cbi-dropdown:not(.btn):not(.cbi-button),.cbi-input-invalid.cbi-dropdown:not([open])>ul>li{border-color:var(--fs-danger)}
 :is(input,select,textarea)[readonly][readonly]{border-color:color-mix(in srgb,var(--fs-border) calc(var(--fs-disabled-opacity) * 100%),transparent);pointer-events:auto;cursor:auto}
@@ -923,10 +924,10 @@ input,textarea,select,.cbi-dropdown>ul>li{font-size:var(--fs-type-lg)}
 }
 @media (forced-colors:active){#tabmenu ul.tabs>li.active>a,ul.cbi-tabmenu.mode>li.cbi-tab>a,.tabs>li.active>a,.cbi-tabmenu>li.cbi-tab>a,.cbi-dropdown>ul>li[selected],.ifacebox .ifacebox-head.active,.cbi-page-actions .cbi-button-apply{outline:2px solid Highlight;outline-offset:-2px;color:HighlightText;background:Highlight;forced-color-adjust:none}
 #topmenu li.active>a{border-inline-start:3px solid Highlight;padding-inline-start:calc(var(--fs-space-3) - 3px)}
-.cbi-checkbox>label[for]{border:1px solid ButtonBorder}
-.cbi-checkbox>input[type="checkbox"]:checked + label{background:Highlight;forced-color-adjust:none}
-.cbi-checkbox>label[for]::after{background:ButtonBorder}
-.cbi-checkbox>input[type="checkbox"]:checked + label::after{background:HighlightText}
+.cbi-checkbox>input[type="checkbox"]{border:1px solid ButtonBorder}
+.cbi-checkbox>input[type="checkbox"]:checked{background:Highlight;forced-color-adjust:none}
+.cbi-checkbox>input[type="checkbox"]::after{background:ButtonBorder}
+.cbi-checkbox>input[type="checkbox"]:checked::after{background:HighlightText}
 .fs-railtoggle,.fs-themerow{border-color:ButtonBorder}
 :focus-visible{outline:2px solid Highlight;outline-offset:1px}
 }
