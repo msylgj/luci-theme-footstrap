@@ -1,0 +1,7 @@
+
+
+config footstrap 'settings'
+	option login_wallpaper 'follow'
+	option online_wallpaper 'bing'
+	option collection_id ''
+	option use_exact_resolution 'exact'

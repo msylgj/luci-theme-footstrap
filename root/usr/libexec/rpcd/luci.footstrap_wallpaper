@@ -1,0 +1,107 @@
+#!/bin/sh
+
+. /lib/functions.sh
+. /usr/share/libubox/jshn.sh
+
+WEB_PIC_SRC="$(uci -q get footstrap.settings.online_wallpaper || echo 'bing')"
+COLLECTION_ID="$(uci -q get footstrap.settings.collection_id)"
+API_KEY="$(uci -q get footstrap.settings.use_api_key)"
+EXACT_RESO="$(uci -q get footstrap.settings.use_exact_resolution || echo 'exact')"
+EXTRA_PARAMS="$(uci -q get footstrap.settings.extra_params)"
+
+case "$WEB_PIC_SRC" in
+bing|unsplash|wallhaven) ;;
+*) WEB_PIC_SRC='bing' ;;
+esac
+
+CACHE="/var/run/footstrap_${WEB_PIC_SRC}.url"
+WRLOCK="/var/lock/footstrap_${WEB_PIC_SRC}.lock"
+
+fetch_pic_url() {
+	case "$WEB_PIC_SRC" in
+	bing)
+		local picpath="$(wget -T3 -qO- \
+			"https://www.bing.com/HPImageArchive.aspx?format=js&n=1" |
+			jsonfilter -qe '@.images[0].url' |
+			sed 's/1920x1080/UHD/g')"
+		[ -n "$picpath" ] && echo "//www.bing.com${picpath}"
+		;;
+	unsplash)
+		if [ -z "$API_KEY" ]; then
+			local source_url='https://source.unsplash.com/1920x1080/daily?wallpapers'
+			[ -z "$COLLECTION_ID" ] || source_url="https://source.unsplash.com/collection/${COLLECTION_ID}/1920x1080"
+			local pic_id="$(wget -T3 --spider "$source_url" 2>&1 |
+				grep -Eo 'photo-[[:alnum:]_]+-[[:alnum:]_]+' | head -n1)"
+			[ -n "$pic_id" ] && echo "https://images.unsplash.com/${pic_id}?fm=jpg&fit=crop&w=1920&h=1080"
+		else
+			local api_url="https://api.unsplash.com/photos/random?client_id=${API_KEY}"
+			[ -z "$COLLECTION_ID" ] || api_url="${api_url}&collections=${COLLECTION_ID}"
+			wget -T3 -qO- "$api_url" |
+				jsonfilter -qe '@["urls"]["regular"]'
+		fi
+		;;
+	wallhaven)
+		local use_reso='resolutions'
+		[ "$EXACT_RESO" = 'exact' ] || use_reso='atleast'
+		[ -z "$API_KEY" ] || API_KEY="apikey=$API_KEY&"
+		[ -z "$EXTRA_PARAMS" ] || EXTRA_PARAMS="&$EXTRA_PARAMS"
+		local tag_query=''
+		[ -z "$COLLECTION_ID" ] || tag_query="q=id%3A${COLLECTION_ID}&"
+		wget -T3 -qO- \
+			"https://wallhaven.cc/api/v1/search?${API_KEY}${tag_query}${use_reso}=1920x1080&sorting=random${EXTRA_PARAMS}" |
+			jsonfilter -qe '@.data[0].path'
+		;;
+	esac
+}
+
+try_update() {
+	local lock="$WRLOCK"
+	exec 200>"$lock"
+
+	if flock -n 200 >/dev/null 2>&1; then
+		local picurl="$(fetch_pic_url)"
+		if [ -n "$picurl" ]; then
+			case "$WEB_PIC_SRC" in wallhaven*) wget -T3 -qO- "$picurl" >/dev/null ;; esac
+			echo "$picurl" | tee "$CACHE"
+		elif [ -s "$CACHE" ]; then
+			cat "$CACHE"
+		else
+			touch "$CACHE"
+		fi
+		flock -u 200 >/dev/null 2>&1
+	elif [ -s "$CACHE" ]; then
+		cat "$CACHE"
+	fi
+}
+
+case "$1" in
+list)
+	json_init
+	json_add_object 'get_url'
+	json_close_object
+	json_dump
+	json_cleanup
+	;;
+call)
+	case "$2" in
+	get_url)
+		read -r input
+		if [ -f "$CACHE" ]; then
+			idle_t="$(( $(date '+%s') - $(date -r "$CACHE" '+%s' 2>/dev/null || echo '0') ))"
+			if [ -s "$CACHE" ] && [ "$idle_t" -le 43200 ]; then
+				json_init; json_add_string 'url' "$(cat "$CACHE")"; json_dump; json_cleanup
+				return 0
+			elif [ "$idle_t" -le 120 ]; then
+				echo '{ "url": "" }'
+				return 1
+			fi
+		fi
+		json_init
+		json_add_string 'url' "$(try_update)"
+		json_dump
+		json_cleanup
+		return 0
+		;;
+	esac
+	;;
+esac
