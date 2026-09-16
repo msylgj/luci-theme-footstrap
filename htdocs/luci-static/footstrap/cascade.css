@@ -956,7 +956,7 @@ input,textarea,select,.cbi-dropdown > ul > li{font-size:var(--fs-type-lg)}
 .cbi-section{break-inside:avoid}
 }
 }
-@layer page{.fs-login{width:min(400px,calc(100% - 32px));margin:7vh auto var(--fs-space-10);background:var(--fs-panel);border:var(--fs-hairline);border-radius:var(--fs-radius-lg);padding:var(--fs-space-6) var(--fs-space-6) var(--fs-space-6);box-shadow:var(--fs-shadow-pop)}
+@layer page{.fs-login{width:min(400px,calc(100% - 32px));margin:30vh auto var(--fs-space-10);background:var(--fs-panel);background:color-mix(in srgb,var(--fs-panel) 70%,transparent);border:var(--fs-hairline);border-radius:var(--fs-radius-lg);padding:var(--fs-space-6) var(--fs-space-6) var(--fs-space-6);box-shadow:var(--fs-shadow-pop)}
 .fs-login-host{margin:0 0 var(--fs-space-6);text-align:center;font-size:var(--fs-type-lg);font-weight:var(--fs-weight-bold);color:var(--fs-dim);overflow-wrap:anywhere}
 .fs-login .cbi-map,.fs-login .cbi-section,.fs-login .cbi-section-node{background:none;border:0;padding:0;margin:0;box-shadow:none}
 .fs-login .cbi-map > h1,.fs-login .cbi-map-descr{background:none;border:0;border-radius:0;box-shadow:none;padding:0}
