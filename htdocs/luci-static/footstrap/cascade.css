@@ -451,14 +451,14 @@ footer a:hover{color:var(--fs-accent)}
 .fs-indicators [data-indicator][data-style="active"],#indicators [data-indicator][data-style="active"]{color:var(--fs-good)}
 .fs-indicators [data-indicator][data-clickable],#indicators [data-indicator][data-clickable]{cursor:pointer}
 .fs-indicators [data-indicator][data-clickable]:focus-visible,#indicators [data-indicator][data-clickable]:focus-visible{outline:none;border-color:var(--fs-accent);box-shadow:var(--fs-focus-ring)}
-.cbi-progressbar{position:relative;height:10px;background:var(--fs-track);border:0;border-radius:var(--fs-radius-pill);overflow:visible;min-width:120px;margin:0}
+.cbi-progressbar{position:relative;height:10px;background:var(--fs-track);border:0;border-radius:var(--fs-radius-pill);overflow:visible;min-width:120px;margin:0;margin-block-start:calc(var(--fs-type-xs) * var(--fs-leading))}
 .cbi-progressbar>div{height:100%;background:var(--fs-accent);border-radius:var(--fs-radius-pill);transition:width var(--fs-dur-fill)}
 .cbi-progressbar[data-fs-level="warn"]>div{background:var(--fs-warn)}
 .cbi-progressbar[data-fs-level="danger"]>div{background:var(--fs-danger)}
 .cbi-progressbar::after{content:attr(title);position:absolute;inset-inline:auto 0;bottom:calc(100% + var(--fs-space-1));top:auto;font-family:var(--fs-font-mono);font-size:var(--fs-type-xs);font-weight:var(--fs-weight-normal);color:var(--fs-dim);white-space:nowrap;text-shadow:none}
-.cbi-value-field>.cbi-progressbar{margin-inline-end:var(--fs-meter-value);--fs-meter-value:calc(var(--fs-space-10) * 2)}
+.cbi-value-field>.cbi-progressbar{margin-inline-end:var(--fs-meter-value);margin-block-start:0;--fs-meter-value:calc(var(--fs-space-10) * 2)}
 .cbi-value-field>.cbi-progressbar::after{inset-inline:calc(100% + var(--fs-space-2)) auto;bottom:auto;top:50%;transform:translateY(-50%)}
-.cbi-section .table:has(.tr.table-titles) .td .cbi-progressbar{margin-inline-end:var(--fs-meter-value);--fs-meter-value:var(--fs-space-10);min-width:60px}
+.cbi-section .table:has(.tr.table-titles) .td .cbi-progressbar{margin-inline-end:var(--fs-meter-value);margin-block-start:0;--fs-meter-value:var(--fs-space-10);min-width:60px}
 .cbi-section .table:has(.tr.table-titles) .td .cbi-progressbar::after{inset-inline:calc(100% + var(--fs-space-2)) auto;bottom:auto;top:50%;transform:translateY(-50%)}
 .cbi-section .table.fs-stacked:has(.tr.table-titles) .td .cbi-progressbar{margin-inline-end:0;margin-block-start:calc(var(--fs-type-xs) * var(--fs-leading))}
 .cbi-section .table.fs-stacked:has(.tr.table-titles) .td .cbi-progressbar::after{inset-inline:auto 0;bottom:calc(100% + var(--fs-space-1));top:auto;transform:none}
@@ -900,7 +900,7 @@ input[type="range"]:focus::-moz-range-track{box-shadow:var(--fs-focus-ring-solo)
 :where(#view)[data-page="admin-system-package-manager"] .controls>.pager{display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:var(--fs-space-2)}
 :where(#view)[data-page="admin-system-package-manager"] .controls>.pager>.btn{flex:0 0 auto}
 :where(#view)[data-page="admin-system-package-manager"] .controls>.pager>.text{flex:0 1 auto;min-width:0}
-:where(#view)[data-page="admin-system-package-manager"] label + .cbi-progressbar{width:100%;margin-bottom:3em}
+:where(#view)[data-page="admin-system-package-manager"] label + .cbi-progressbar{width:100%;margin-bottom:3em;margin-block-start:0}
 :where(#view)[data-page="admin-system-package-manager"] label + .cbi-progressbar::after{top:calc(100% + 5px);inset-inline:0 auto;bottom:auto;text-align:start;white-space:normal;max-width:100%}
 :where(#view)[data-page="admin-system-package-manager"] .controls>div>label{display:block;min-width:0;white-space:normal;margin-bottom:var(--fs-space-1)}
 :where(#view)[data-page="admin-system-package-manager"] .controls>div>div:has(>label>input[type="radio"]){display:flex;flex-wrap:wrap;align-items:center;gap:var(--fs-space-1) var(--fs-space-5)}
