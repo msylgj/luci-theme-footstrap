@@ -2,6 +2,7 @@
 'require baseclass';
 'require ui';
 'require dom';
+'require uci';
 'require fs-prefs as prefs';
 'require fs-axes as axes';
 'require fs-assets as assets';
@@ -460,6 +461,88 @@ function build() {
 	 * the Save button honest; Choose/Remove only swap the picture and never touch the axis. The
 	 * native file inputs stay hidden — the styled buttons trigger them. */
 	const wallpaper = (() => {
+		axes.configureLoginBackground(
+			uci.get('footstrap', 'settings', 'login_wallpaper'),
+			uci.get('footstrap', 'settings', 'online_wallpaper'),
+			uci.get('footstrap', 'settings', 'collection_id'),
+			uci.get('footstrap', 'settings', 'use_api_key'),
+			uci.get('footstrap', 'settings', 'extra_params'),
+			uci.get('footstrap', 'settings', 'use_exact_resolution')
+		);
+		const loginModeSelect = E('select', { 'class': 'cbi-input-select' }, [
+			E('option', { 'value': 'follow' }, [ _('Follow global background', 'footstrap') ]),
+			E('option', { 'value': 'online' }, [ _('Online', 'footstrap') ])
+		]);
+		loginModeSelect.value = axes.currentLoginWallpaper();
+		const collectionInput = E('input', {
+			'class': 'cbi-input-text', 'type': 'text', 'inputmode': 'numeric', 'pattern': '[0-9]*',
+			'value': axes.currentOnlineCollectionId()
+		});
+		const apiKeyInput = E('input', {
+			'class': 'cbi-input-text', 'type': 'password', 'autocomplete': 'off', 'value': axes.currentOnlineApiKey()
+		});
+		const extraParamsInput = E('input', {
+			'class': 'cbi-input-text', 'type': 'text', 'value': axes.currentOnlineExtraParams()
+		});
+		const sourceSelect = E('select', { 'class': 'cbi-input-select' }, [
+			E('option', { 'value': 'bing' }, [ 'Bing' ]),
+			E('option', { 'value': 'unsplash' }, [ 'Unsplash' ]),
+			E('option', { 'value': 'wallhaven' }, [ 'Wallhaven' ])
+		]);
+		sourceSelect.value = axes.currentOnlineWallpaper();
+		const resolutionSelect = E('select', { 'class': 'cbi-input-select' }, [
+			E('option', { 'value': 'exact' }, [ _('Exact 1920x1080', 'footstrap') ]),
+			E('option', { 'value': 'atleast' }, [ _('At least 1920x1080', 'footstrap') ])
+		]);
+		resolutionSelect.value = axes.currentOnlineResolution();
+		const collectionRow = group(_('Collection ID', 'footstrap'), () => collectionInput);
+		const apiKeyRow = group(_('API key', 'footstrap'), () => apiKeyInput);
+		const extraParamsRow = group(_('Extra parameters', 'footstrap'), () => extraParamsInput);
+		const resolutionRow = group(_('Resolution', 'footstrap'), () => resolutionSelect);
+		const onlineSourceRow = group(_('Wallpaper source', 'footstrap'), () => sourceSelect);
+		const onlineRows = [ onlineSourceRow, collectionRow, apiKeyRow, extraParamsRow, resolutionRow ];
+		const loginModeRow = group(_('Login background', 'footstrap'), () => loginModeSelect);
+
+		function updateOnlineRows() {
+			const enabled = loginModeSelect.value === 'online';
+			const collectionSource = sourceSelect.value === 'unsplash' || sourceSelect.value === 'wallhaven';
+			onlineSourceRow.hidden = !enabled;
+			collectionRow.hidden = !enabled || !collectionSource;
+			apiKeyRow.hidden = !enabled || !collectionSource;
+			extraParamsRow.hidden = !enabled || sourceSelect.value !== 'wallhaven';
+			resolutionRow.hidden = !enabled || sourceSelect.value !== 'wallhaven';
+		}
+
+		loginModeSelect.addEventListener('change', () => {
+			axes.applyLoginWallpaper(loginModeSelect.value);
+			updateOnlineRows();
+			refreshSave();
+		});
+		sourceSelect.addEventListener('change', () => {
+			axes.applyOnlineWallpaper(sourceSelect.value);
+			updateOnlineRows();
+			refreshSave();
+		});
+		collectionInput.addEventListener('input', () => {
+			/* Keep the draft valid so this group needs no special validation or save branch. */
+			collectionInput.value = collectionInput.value.replace(/\D/g, '');
+			axes.applyOnlineCollectionId(collectionInput.value);
+			refreshSave();
+		});
+		apiKeyInput.addEventListener('input', () => {
+			axes.applyOnlineApiKey(apiKeyInput.value.trim());
+			refreshSave();
+		});
+		extraParamsInput.addEventListener('input', () => {
+			axes.applyOnlineExtraParams(extraParamsInput.value.trim());
+			refreshSave();
+		});
+		resolutionSelect.addEventListener('change', () => {
+			axes.applyOnlineResolution(resolutionSelect.value);
+			refreshSave();
+		});
+		updateOnlineRows();
+
 		const err = E('div', { 'class': 'fs-ap-err', 'role': 'alert', 'hidden': '' });
 		const preview = E('img', { 'class': 'fs-ap-bgprev', 'alt': '', 'hidden': '' });
 		/* display:none, not `hidden`: a bare `hidden=""` still renders the native
@@ -587,7 +670,7 @@ function build() {
 			return seg;
 		});
 
-		return [ wallRow ].concat(patRows, fileRows);
+		return [ wallRow ].concat(patRows, fileRows, [ loginModeRow ], onlineRows);
 	})();
 
 	/* ---- section 4: the router default and the version ----

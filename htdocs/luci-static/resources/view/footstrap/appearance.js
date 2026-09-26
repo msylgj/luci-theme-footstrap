@@ -1,5 +1,6 @@
 'use strict';
 'require view';
+'require uci';
 'require fs-appearance as appearance';
 
 /* The real Footstrap page. `menu.d/luci-theme-footstrap.json` dispatches
@@ -22,6 +23,8 @@
  * from) do not depend on the wrapper to lay out correctly, only to look like a page instead of
  * bare rows on the canvas. */
 return view.extend({
+	load: () => uci.load('footstrap'),
+
 	render: () => appearance.renderStandalone().then((form) => E('div', { 'class': 'cbi-section' }, [ form ])),
 
 	/* Measured, not assumed (docs/devkit.src.html "handleSaveApply = null instead of hiding stock
