@@ -19,7 +19,7 @@ LUCI_DESCRIPTION:=A standalone LuCI theme with a collapsible sidebar or top bar,
 	modes, a menu search and a client-side page router
 # +luci-base is the WHOLE list, and keeping it that way is a design constraint: the theme ships no
 # framework and every page it draws is drawn by luci-base's own view JS.
-LUCI_DEPENDS:=+luci-base
+LUCI_DEPENDS:=+luci-base +@wget-any +jsonfilter
 LUCI_PKGARCH:=all
 
 # csstidy is old enough to mangle :has() and color-mix(), both of which this sheet uses heavily —

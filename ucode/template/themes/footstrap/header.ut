@@ -46,6 +46,9 @@
 		'card', 'control', 'bar', 'line',
 		'rounding', 'autocollapse', 'tint_strength', 'photo_dim',
 		'pattern_size', 'pattern_strength', 'pattern_ink', 'content_width',
+		/* The selected login mode affects template rendering. The source options are read only by
+		   luci.footstrap_wallpaper and never enter the shared page defaults. */
+		'login_wallpaper',
 		/* the two uploaded images' cache-bust tokens (head.ut whitelists both to hex); the files
 		   themselves are served. Not axes — they have no browser layer — but they reach the client
 		   the same way. */
@@ -59,6 +62,16 @@
 	const fs_defaults = {};
 	for (let k in FS_AXES)
 		fs_defaults[k] = fsd[k] || '';
+	/* Only login_wallpaper reaches the template. The wallpaper service reads its other five UCI
+	   options itself when resolving the URL. */
+	fs_defaults.login_bg_url = '';
+	if (blank_page && fs_defaults.login_wallpaper == 'online') {
+		const online_bg = ubus.call('luci.footstrap_wallpaper', 'get_url') ?? {};
+		if (type(online_bg.url) == 'string' && match(online_bg.url, /^https:\/\/[A-Za-z0-9._~:\/?@!$&'()*+,;=%#-]+$/))
+			fs_defaults.login_bg_url = online_bg.url;
+		else
+			fs_defaults.login_wallpaper = 'follow';
+	}
 	/* the one value with a fallback of its own: the legacy migration seed
 	   luci.main.footstrap_layout=top, which an admin may set to give the router a default top-nav
 	   theme (a shell script cannot write localStorage).

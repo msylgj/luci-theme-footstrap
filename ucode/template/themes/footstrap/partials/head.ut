@@ -18,6 +18,7 @@
 	let _sd_dark = index([ 'auto', 'light', 'dark' ], fs_defaults.darkmode) >= 0 ? fs_defaults.darkmode : '';
 	let _sd_pal  = index([ 'footstrap', 'hicontrast', 'bootstrap', '2020', 'forum' ], fs_defaults.palette) >= 0 ? fs_defaults.palette : '';
 	let _sd_wall = index([ 'off', 'pattern', 'file' ], fs_defaults.wallpaper) >= 0 ? fs_defaults.wallpaper : '';
+	let _sd_login_wall = fs_defaults.login_wallpaper == 'online' ? 'online' : 'follow';
 	let _sd_pink = index([ 'theme', 'original' ], fs_defaults.pattern_ink) >= 0 ? fs_defaults.pattern_ink : '';
 	let _sd_ac   = index([ 'on', 'off' ], fs_defaults.autocollapse) >= 0 ? fs_defaults.autocollapse : '';
 	let _sd_dens = index([ 'compact', 'normal', 'large' ], fs_defaults.density) >= 0 ? fs_defaults.density : '';
@@ -72,6 +73,9 @@
 	/* the pattern's tile edge in px and the layer's opacity 0-100 */
 	let _sd_psize = _sd_range(fs_defaults.pattern_size, 40, 1600);
 	let _sd_pstr = _sd_range(fs_defaults.pattern_strength, 0, 100);
+	/* Only a URL from the wallpaper service may reach the login page's inline script. */
+	let _lbu = fs_defaults.login_bg_url;
+	let _sd_lbg_url = (type(_lbu) == 'string' && match(_lbu, /^https:\/\/[A-Za-z0-9._~:\/?@!$&()*+,;=%#-]+$/)) ? _lbu : '';
 	/* ---- the fonts ----
 	   The theme carries no faces, so the two stacks in styles/02-tokens.css are what everyone gets
 	   unless the router names something else here. Two independent options, either usable alone:
@@ -133,7 +137,7 @@
    script below only overrides it.
    Absent = TOP: the bar is what the theme is built around (every layout rule starts from it, with
    the vertical column as the one guarded override) and it is what a phone gets at any setting. #}
-<html lang="{{ dispatcher.lang }}" dir="{{ _rtl ? 'rtl' : 'ltr' }}" data-layout="{{ fs_defaults.layout == 'sidebar' ? 'sidebar' : 'top' }}">
+<html lang="{{ dispatcher.lang }}" dir="{{ _rtl ? 'rtl' : 'ltr' }}" data-layout="{{ fs_defaults.layout == 'sidebar' ? 'sidebar' : 'top' }}" data-login-wallpaper="{{ _sd_login_wall }}">
 	<head>
 		<meta charset="utf-8">
 		{# entityencode around striptags: striptags drops tags but escapes neither `&` nor quotes,
@@ -322,6 +326,9 @@
 					const lb = sd.login_bg;
 					if (lb && (/^[a-f0-9]{6,64}$/).test(lb))
 						root.style.setProperty('--fs-login-bg-url', 'url("/luci-static/footstrap/bg?v=' + lb + '")');
+					{% if (_sd_login_wall == 'online'): %}
+					        root.style.setProperty('--fs-sysauth-bg-url', 'url("{{ _sd_lbg_url }}")');
+					{% endif %}
 					/* the Tint's strength (default 100% = the designed chroma) */
 					const tsRaw = lsGet('fs-tint-strength');
 					let ts = parseInt(tsRaw, 10);

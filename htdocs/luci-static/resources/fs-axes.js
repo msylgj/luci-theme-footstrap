@@ -270,8 +270,50 @@ const PINK = prefs.enumAxis('fs-pattern-ink', 'data-pattern-ink', 'original', 't
 const _uciSet = rpc.declare({ object: 'uci', method: 'set', params: [ 'config', 'section', 'values' ], reject: true });
 const _uciCommit = rpc.declare({ object: 'uci', method: 'commit', params: [ 'config' ], reject: true });
 
-function snapshotAxes() {
+const ONLINE_SOURCES = [ 'bing', 'unsplash', 'wallhaven' ];
+let _loginWallpaper = 'follow';
+let _onlineWallpaper = 'bing';
+let _onlineCollectionId = '';
+let _onlineApiKey = '';
+let _onlineExtraParams = '';
+let _onlineResolution = 'exact';
+
+function loginBackgroundSnapshot() {
 	return {
+		login_wallpaper: _loginWallpaper,
+		online_wallpaper: _onlineWallpaper,
+		collection_id: _onlineCollectionId,
+		use_api_key: _onlineApiKey,
+		extra_params: _onlineExtraParams,
+		use_exact_resolution: _onlineResolution
+	};
+}
+
+function configureLoginBackground(loginWallpaper, onlineWallpaper, collectionId, apiKey, extraParams, resolution) {
+	_loginWallpaper = loginWallpaper === 'online' ? 'online' : 'follow';
+	_onlineWallpaper = ONLINE_SOURCES.indexOf(onlineWallpaper) >= 0 ? onlineWallpaper : 'bing';
+	_onlineCollectionId = String(collectionId || '');
+	_onlineApiKey = String(apiKey || '');
+	_onlineExtraParams = String(extraParams || '');
+	_onlineResolution = resolution === 'atleast' ? 'atleast' : 'exact';
+	Object.assign(_savedDefault, loginBackgroundSnapshot());
+}
+
+function currentLoginWallpaper() { return _loginWallpaper; }
+function applyLoginWallpaper(value) { _loginWallpaper = value === 'online' ? 'online' : 'follow'; }
+function currentOnlineWallpaper() { return _onlineWallpaper; }
+function applyOnlineWallpaper(value) { _onlineWallpaper = ONLINE_SOURCES.indexOf(value) >= 0 ? value : 'bing'; }
+function currentOnlineCollectionId() { return _onlineCollectionId; }
+function applyOnlineCollectionId(value) { _onlineCollectionId = String(value || ''); }
+function currentOnlineApiKey() { return _onlineApiKey; }
+function applyOnlineApiKey(value) { _onlineApiKey = String(value || ''); }
+function currentOnlineExtraParams() { return _onlineExtraParams; }
+function applyOnlineExtraParams(value) { _onlineExtraParams = String(value || ''); }
+function currentOnlineResolution() { return _onlineResolution; }
+function applyOnlineResolution(value) { _onlineResolution = value === 'atleast' ? 'atleast' : 'exact'; }
+
+function snapshotAxes() {
+	return Object.assign({
 		layout: prefs.currentLayout(),
 		darkmode: prefs.currentMode(),
 		palette: PALETTE.current(),
@@ -294,7 +336,7 @@ function snapshotAxes() {
 		pattern_strength: String(PSTR.current()),
 		pattern_ink: PINK.current(),
 		content_width: String(CWIDTH.current())
-	};
+	}, loginBackgroundSnapshot());
 }
 /* The resolved router default (the uci value if set, else the built-in) in snapshotAxes() string
  * form, so the Appearance tab can grey the Save button when this browser already shows exactly it.
@@ -307,7 +349,7 @@ function snapshotAxes() {
  * stamp and resetToBuiltin(), or a fresh install shows dirty before anything is touched and
  * resetToSaved() lands on the wrong layout. */
 function _resolvedDefault() {
-	return {
+	return Object.assign({
 		layout: prefs.sd('layout') || 'top',
 		darkmode: prefs.modeDefault(),
 		palette: PALETTE.def(),
@@ -330,7 +372,7 @@ function _resolvedDefault() {
 		pattern_strength: String(PSTR.def()),
 		pattern_ink: PINK.def(),
 		content_width: String(CWIDTH.def())
-	};
+	}, loginBackgroundSnapshot());
 }
 let _savedDefault = _resolvedDefault();
 function matchesSavedDefault() {
@@ -405,6 +447,12 @@ function resetToBuiltin() {
 	PSTR.apply(FS_PSTR_DEFAULT);
 	PINK.apply('theme');
 	CWIDTH.apply(FS_CWIDTH_DEFAULT);
+	applyLoginWallpaper('follow');
+	applyOnlineWallpaper('bing');
+	applyOnlineCollectionId('');
+	applyOnlineApiKey('');
+	applyOnlineExtraParams('');
+	applyOnlineResolution('exact');
 }
 
 /* ---- the two uploaded wallpapers, browser side ----
@@ -485,6 +533,13 @@ return baseclass.extend({
 	contentWidth: CWIDTH,
 	pattern: PATTERN,
 	loginBg: LOGIN_BG,
+	configureLoginBackground,
+	currentLoginWallpaper, applyLoginWallpaper,
+	currentOnlineWallpaper, applyOnlineWallpaper,
+	currentOnlineCollectionId, applyOnlineCollectionId,
+	currentOnlineApiKey, applyOnlineApiKey,
+	currentOnlineExtraParams, applyOnlineExtraParams,
+	currentOnlineResolution, applyOnlineResolution,
 
 	tokenOk,
 
