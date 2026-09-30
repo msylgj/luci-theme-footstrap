@@ -1,542 +1,552 @@
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8"
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:502
 msgctxt "footstrap"
 msgid "API key"
-msgstr ""
+msgstr "API 密钥"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:426
 msgctxt "footstrap"
 msgid "Accent"
-msgstr ""
+msgstr "强调色"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:588
 msgctxt "footstrap"
 msgid "As in file"
-msgstr ""
+msgstr "与文件一致"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:498
 msgctxt "footstrap"
 msgid "At least 1920x1080"
-msgstr ""
+msgstr "至少 1920x1080"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/sysauth.ut:96
 msgid "Authorization Required"
-msgstr ""
+msgstr "需要授权"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:346
 msgctxt "footstrap"
 msgid "Auto"
-msgstr ""
+msgstr "自动"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:390
 msgctxt "footstrap"
 msgid "Auto-collapse"
-msgstr ""
+msgstr "自动收起"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:921
 msgctxt "footstrap"
 msgid "Background"
-msgstr ""
+msgstr "背景"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:193
 msgctxt "footstrap"
 msgid "Barely visible %s"
-msgstr ""
+msgstr "%s 几乎不可见"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:449
 msgctxt "footstrap"
 msgid "Borders"
-msgstr ""
+msgstr "边框"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/menu-footstrap-common.js:192
 msgid "Buffered"
-msgstr ""
+msgstr "缓冲"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/menu-footstrap-common.js:192
 msgid "Cached"
-msgstr ""
+msgstr "缓存"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:446
 msgctxt "footstrap"
 msgid "Cards"
-msgstr ""
+msgstr "卡片"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:561
 msgctxt "footstrap"
 msgid "Choose SVG"
-msgstr ""
+msgstr "选择 SVG 文件"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:554
 msgctxt "footstrap"
 msgid "Choose image"
-msgstr ""
+msgstr "选择图片"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:39
 msgctxt "footstrap"
 msgid ""
 "Cleaned before upload: removed %d unsafe element(s) and %d external "
 "reference(s)."
-msgstr ""
+msgstr "上传前已清理：移除了 %d 个不安全元素和 %d 个外部引用。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:192
 msgctxt "footstrap"
 msgid "Clearly visible %s"
-msgstr ""
+msgstr "%s 清晰可见"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-chrome.js:476
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/header.ut:195
 msgid "Collapse menu"
-msgstr ""
+msgstr "收起菜单"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:501
 msgctxt "footstrap"
 msgid "Collection ID"
-msgstr ""
+msgstr "图集 ID"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:572
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:918
 msgctxt "footstrap"
 msgid "Colours"
-msgstr ""
+msgstr "颜色"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:365
 msgctxt "footstrap"
 msgid "Compact"
-msgstr ""
+msgstr "紧凑"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:762
 msgctxt "footstrap"
 msgid "Confirm reset"
-msgstr ""
+msgstr "确认重置"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:376
 msgctxt "footstrap"
 msgid "Content width"
-msgstr ""
+msgstr "内容宽度"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:201
 msgctxt "footstrap"
 msgid "Contrast %s:1 (WCAG AA wants %s:1 here)"
-msgstr ""
+msgstr "对比度 %s:1（此处 WCAG AA 要求 %s:1）"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:447
 msgctxt "footstrap"
 msgid "Controls"
-msgstr ""
+msgstr "控件"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:33
 msgctxt "footstrap"
 msgid "Could not process the image."
-msgstr ""
+msgstr "无法处理图片。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:741
 msgctxt "footstrap"
 msgid "Could not save the default. Reload the page and try again."
-msgstr ""
+msgstr "无法保存默认外观。请刷新页面后重试。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:429
 msgctxt "footstrap"
 msgid "Danger"
-msgstr ""
+msgstr "危险"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:348
 msgctxt "footstrap"
 msgid "Dark"
-msgstr ""
+msgstr "深色"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:364
 msgctxt "footstrap"
 msgid "Density"
-msgstr ""
+msgstr "密度"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:569
 msgctxt "footstrap"
 msgid "Dim"
-msgstr ""
+msgstr "调暗"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:195
 msgctxt "footstrap"
 msgid "Easy to read %s"
-msgstr ""
+msgstr "%s 易于阅读"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:497
 msgctxt "footstrap"
 msgid "Exact 1920x1080"
-msgstr ""
+msgstr "精确匹配 1920x1080"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-chrome.js:476
 msgid "Expand menu"
-msgstr ""
+msgstr "展开菜单"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:503
 msgctxt "footstrap"
 msgid "Extra parameters"
-msgstr ""
+msgstr "额外参数"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:593
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:671
 msgctxt "footstrap"
 msgid "File"
-msgstr ""
+msgstr "文件"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:476
 msgctxt "footstrap"
 msgid "Follow global background"
-msgstr ""
+msgstr "跟随全局背景"
 
 #: themes/luci-theme-footstrap/root/usr/share/luci/menu.d/luci-theme-footstrap.json:3
 msgid "Footstrap"
-msgstr ""
+msgstr "Footstrap"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:910
 msgctxt "footstrap"
 msgid ""
 "Footstrap theme settings apply at once and are stored permanently in this "
 "browser."
-msgstr ""
+msgstr "Footstrap 主题设置立即生效，并永久保存在此浏览器中。"
 
 #: themes/luci-theme-footstrap/root/usr/share/rpcd/acl.d/luci-theme-footstrap.json:3
 msgid ""
 "Footstrap theme settings saved to the router, the login background and "
 "pattern uploads, and the Footstrap settings page"
-msgstr ""
+msgstr "保存到路由器的 Footstrap 主题设置、登录背景和图案上传，以及 Footstrap 设置页面"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/notices.ut:24
 msgid "Go to firmware upgrade..."
-msgstr ""
+msgstr "前往固件升级..."
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/notices.ut:15
 msgid "Go to password configuration..."
-msgstr ""
+msgstr "前往密码设置..."
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:427
 msgctxt "footstrap"
 msgid "Good"
-msgstr ""
+msgstr "良好"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:197
 msgctxt "footstrap"
 msgid "Hard to read %s — large text only"
-msgstr ""
+msgstr "%s 较难阅读，仅适用于大号文字"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:917
 msgctxt "footstrap"
 msgid "Interface"
-msgstr ""
+msgstr "界面"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/sysauth.ut:78
 msgid "Invalid username and/or password! Please try again."
-msgstr ""
+msgstr "用户名或密码错误！请重试。"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/notices.ut:30
 msgid "JavaScript required!"
-msgstr ""
+msgstr "需要启用 JavaScript！"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:389
 msgctxt "footstrap"
 msgid "Keep open"
-msgstr ""
+msgstr "保持展开"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:367
 msgctxt "footstrap"
 msgid "Large"
-msgstr ""
+msgstr "宽松"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:340
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:836
 msgctxt "footstrap"
 msgid "Layout"
-msgstr ""
+msgstr "布局"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:347
 msgctxt "footstrap"
 msgid "Light"
-msgstr ""
+msgstr "浅色"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/sysauth.ut:162
 msgid "Log in"
-msgstr ""
+msgstr "登录"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/logout.ut:8
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/logout.ut:15
 msgid "Log out"
-msgstr ""
+msgstr "退出登录"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:507
 msgctxt "footstrap"
 msgid "Login background"
-msgstr ""
+msgstr "登录背景"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/footer.ut:25
 msgid "Lua compatibility mode active"
-msgstr ""
+msgstr "已启用 Lua 兼容模式"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-overview.js:23
 msgid "Memory"
-msgstr ""
+msgstr "内存"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/header.ut:192
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/header.ut:203
 msgid "Menu"
-msgstr ""
+msgstr "菜单"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/notices.ut:22
 msgid ""
 "No changes to settings will be stored and are lost after rebooting. This "
 "mode should only be used to install a firmware upgrade"
-msgstr ""
+msgstr "设置更改不会被保存，重启后将丢失。此模式仅应用于安装固件升级"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-search.js:330
 msgctxt "footstrap"
 msgid "No pages found"
-msgstr ""
+msgstr "未找到页面"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/notices.ut:12
 msgid "No password set!"
-msgstr ""
+msgstr "尚未设置密码！"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:366
 msgctxt "footstrap"
 msgid "Normal"
-msgstr ""
+msgstr "标准"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:669
 msgctxt "footstrap"
 msgid "Off"
-msgstr ""
+msgstr "关闭"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:477
 msgctxt "footstrap"
 msgid "Online"
-msgstr ""
+msgstr "在线壁纸"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-search.js:241
 msgctxt "footstrap"
 msgid "Pages"
-msgstr ""
+msgstr "页面"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:159
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:351
 msgctxt "footstrap"
 msgid "Palette"
-msgstr ""
+msgstr "调色板"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/sysauth.ut:108
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:579
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:670
 msgctxt "footstrap"
 msgid "Pattern"
-msgstr ""
+msgstr "图案"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:34
 msgctxt "footstrap"
 msgid "Please choose an SVG file."
-msgstr ""
+msgstr "请选择 SVG 文件。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:541
 msgctxt "footstrap"
 msgid "Please choose an image file."
-msgstr ""
+msgstr "请选择图片文件。"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/sysauth.ut:98
 msgid "Please enter your username and password."
-msgstr ""
+msgstr "请输入用户名和密码。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-search.js:329
 msgctxt "footstrap"
 msgid "Recently visited"
-msgstr ""
+msgstr "最近访问"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:556
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:563
 msgctxt "footstrap"
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:705
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:772
 msgctxt "footstrap"
 msgid "Reset to built-in"
-msgstr ""
+msgstr "恢复主题内置外观"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:800
 msgctxt "footstrap"
 msgid "Reset to built-in — go back to the look the theme ships with."
-msgstr ""
+msgstr "恢复主题内置外观：回到主题自带的外观。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:690
 msgctxt "footstrap"
 msgid "Reset to router"
-msgstr ""
+msgstr "恢复路由器外观"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:798
 msgctxt "footstrap"
 msgid "Reset to router — drop this browser's changes and follow the router."
-msgstr ""
+msgstr "恢复路由器外观：清除本浏览器的更改，跟随路由器保存的外观。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:504
 msgctxt "footstrap"
 msgid "Resolution"
-msgstr ""
+msgstr "分辨率"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:380
 msgctxt "footstrap"
 msgid "Rounding"
-msgstr ""
+msgstr "圆角"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:688
 msgctxt "footstrap"
 msgid "Save to router"
-msgstr ""
+msgstr "保存到路由器"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:796
 msgctxt "footstrap"
 msgid ""
 "Save to router — store this look on the router. Browsers with a look of "
 "their own keep it."
-msgstr ""
+msgstr "保存到路由器：将当前外观存储在路由器上。已有专属外观的浏览器不受影响。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:806
 msgctxt "footstrap"
 msgid "Saved look"
-msgstr ""
+msgstr "已保存的外观"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:730
 msgctxt "footstrap"
 msgid "Saved to router"
-msgstr ""
+msgstr "已保存到路由器"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:922
 msgctxt "footstrap"
 msgid "Saving"
-msgstr ""
+msgstr "保存"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:570
 msgctxt "footstrap"
 msgid "Scale"
-msgstr ""
+msgstr "缩放"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/search.ut:12
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/search.ut:14
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-search.js:235
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-search.js:261
 msgctxt "footstrap"
 msgid "Search pages"
-msgstr ""
+msgstr "搜索页面"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-search.js:236
 msgctxt "footstrap"
 msgid "Search pages…"
-msgstr ""
+msgstr "搜索页面…"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:341
 msgctxt "footstrap"
 msgid "Sidebar"
-msgstr ""
+msgstr "侧边栏"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:448
 msgctxt "footstrap"
 msgid "Sidebar and bar"
-msgstr ""
+msgstr "侧边栏和顶栏"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/header.ut:172
 msgid "Skip to content"
-msgstr ""
+msgstr "跳转到内容"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-search.js:330
 msgctxt "footstrap"
 msgid "Start typing to find a page"
-msgstr ""
+msgstr "输入关键词查找页面"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-overview.js:23
 msgid "Storage"
-msgstr ""
+msgstr "存储"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:571
 msgctxt "footstrap"
 msgid "Strength"
-msgstr ""
+msgstr "强度"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:387
 msgctxt "footstrap"
 msgid "Submenus"
-msgstr ""
+msgstr "子菜单"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:919
 msgctxt "footstrap"
 msgid "Surfaces"
-msgstr ""
+msgstr "界面表面"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/menu-footstrap-common.js:191
 msgid "Swap free"
-msgstr ""
+msgstr "空闲交换空间"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-overview.js:23
 msgid "System"
-msgstr ""
+msgstr "系统"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/notices.ut:21
 msgid "System running in recovery (initramfs) mode."
-msgstr ""
+msgstr "系统正以恢复（initramfs）模式运行。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-select.js:722
 msgid "Table"
-msgstr ""
+msgstr "表格"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:40
 msgctxt "footstrap"
 msgid "That SVG had nothing left once the unsafe parts were removed."
-msgstr ""
+msgstr "移除不安全内容后，该 SVG 已无可用内容。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:346
 msgctxt "footstrap"
 msgid "That file could not be read."
-msgstr ""
+msgstr "无法读取该文件。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:426
 msgctxt "footstrap"
 msgid "That file is not a readable image."
-msgstr ""
+msgstr "该文件不是可读取的图片。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:32
 msgctxt "footstrap"
 msgid "That file is not an SVG image."
-msgstr ""
+msgstr "该文件不是 SVG 图片。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:518
 msgctxt "footstrap"
 msgid "That file is too large."
-msgstr ""
+msgstr "文件过大。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:543
 msgctxt "footstrap"
 msgid "That image is too large."
-msgstr ""
+msgstr "图片过大。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:380
 msgctxt "footstrap"
 msgid "The router refused to delete the file (ubus status %d)."
-msgstr ""
+msgstr "路由器拒绝删除该文件（ubus 状态码 %d）。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:345
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:587
 msgctxt "footstrap"
 msgid "Theme"
-msgstr ""
+msgstr "主题"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/notices.ut:13
 msgid ""
 "There is no password set on this router. Please configure a root password to "
 "protect the web interface."
-msgstr ""
+msgstr "此路由器尚未设置密码。请设置 root 密码以保护 Web 管理界面。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:724
 msgctxt "footstrap"
@@ -544,93 +554,93 @@ msgid ""
 "This browser is not storing preferences (site data is blocked), so a change "
 "here lasts until you reload. Saving as default still works and applies to "
 "every browser."
-msgstr ""
+msgstr "此浏览器未保存偏好设置（网站数据已被阻止），因此这里的更改仅在刷新前有效。仍可将外观保存到路由器，供所有浏览器使用。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:838
 msgctxt "footstrap"
 msgid "This theme is not translated on this router yet."
-msgstr ""
+msgstr "此路由器尚未安装本主题的翻译。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:399
 msgctxt "footstrap"
 msgid "Tint (router identification)"
-msgstr ""
+msgstr "色调（用于区分路由器）"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:412
 msgctxt "footstrap"
 msgid "Tint strength"
-msgstr ""
+msgstr "色调强度"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:198
 msgctxt "footstrap"
 msgid "Too faint to read %s"
-msgstr ""
+msgstr "%s 过于模糊，无法阅读"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:342
 msgctxt "footstrap"
 msgid "Top"
-msgstr ""
+msgstr "顶部"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/menu-footstrap-common.js:191
 msgid "Total Available"
-msgstr ""
+msgstr "总可用量"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:31
 msgctxt "footstrap"
 msgid "Upload failed."
-msgstr ""
+msgstr "上传失败。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:638
 msgctxt "footstrap"
 msgid "Uploading…"
-msgstr ""
+msgstr "正在上传…"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/sysauth.ut:102
 msgid "Username"
-msgstr ""
+msgstr "用户名"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:667
 msgctxt "footstrap"
 msgid "Wallpaper"
-msgstr ""
+msgstr "壁纸"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:505
 msgctxt "footstrap"
 msgid "Wallpaper source"
-msgstr ""
+msgstr "壁纸来源"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:428
 msgctxt "footstrap"
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: themes/luci-theme-footstrap/ucode/template/themes/footstrap/partials/notices.ut:31
 msgid ""
 "You must enable JavaScript in your browser or LuCI will not work properly."
-msgstr ""
+msgstr "必须在浏览器中启用 JavaScript，否则 LuCI 将无法正常工作。"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:448
 msgctxt "footstrap"
 msgid "in the sidebar"
-msgstr ""
+msgstr "在侧边栏中"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:274
 msgctxt "footstrap"
 msgid "on a card"
-msgstr ""
+msgstr "在卡片上"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:447
 msgctxt "footstrap"
 msgid "on a control"
-msgstr ""
+msgstr "在控件上"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-appearance.js:404
 msgctxt "footstrap"
 msgid "on the canvas"
-msgstr ""
+msgstr "在背景上"
 
 #: themes/luci-theme-footstrap/htdocs/luci-static/resources/fs-assets.js:442
 msgctxt "footstrap"
 msgid ""
 "the uploaded file could not be removed either; it is still on the router."
-msgstr ""
+msgstr "上传的文件也无法删除，仍保留在路由器上。"
